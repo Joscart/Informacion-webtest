@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noticias Teamers</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Noticias Teamers</h1>
+        <button id="openModalButton">Nueva Publicación</button>
+    </header>
+
+    <div id="newsContainer"></div>
+
+    <footer>
+        <p>&copy; Teamers, <?php echo date("Y"); ?></p>
+    </footer>
+
+    <div id="modal" class="modal hidden">
+        <form id="newPostForm">
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" required>
+            
+            <label for="summary">Resumen:</label>
+            <textarea id="summary" name="summary" required></textarea>
+            
+            <label for="details">Detalles:</label>
+            <textarea id="details" name="details" required></textarea>
+            
+            <button type="submit">Publicar</button>
+            <button type="button" id="closeModalButton">Cerrar</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
