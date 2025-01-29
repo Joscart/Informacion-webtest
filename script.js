@@ -1,20 +1,26 @@
 document.addEventListener('DOMContentLoaded', function() {
     console.log('News page loaded');
 
-    const newPostForm = document.getElementById('newPostForm');
+    const newPostBtn = document.getElementById('new-post-btn');
     const modal = document.getElementById('modal');
-    const openModalButton = document.getElementById('openModalButton');
-    const closeModalButton = document.getElementById('closeModalButton');
-    const newsContainer = document.getElementById('newsContainer');
+    const closeModal = document.getElementById('close-modal');
+    const cancelBtn = document.getElementById('cancel-btn');
+    const newPostForm = document.getElementById('new-post-form');
+    const newsContainer = document.getElementById('news-container');
 
-    openModalButton.addEventListener('click', function() {
+    newPostBtn.addEventListener('click', function() {
         modal.classList.remove('hidden');
-        modal.style.display = 'block';
+        modal.style.display = 'flex'; // Ensure the modal is displayed
     });
 
-    closeModalButton.addEventListener('click', function() {
+    closeModal.addEventListener('click', function() {
         modal.classList.add('hidden');
-        modal.style.display = 'none';
+        modal.style.display = 'none'; // Ensure the modal is hidden
+    });
+
+    cancelBtn.addEventListener('click', function() {
+        modal.classList.add('hidden');
+        modal.style.display = 'none'; // Ensure the modal is hidden
     });
 
     newPostForm.addEventListener('submit', function(event) {
@@ -24,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const summary = document.getElementById('summary').value;
         const details = document.getElementById('details').value;
 
-        if (title.length < 30 || summary.length < 100) {
-            alert("El título debe tener al menos 30 caracteres y el resumen al menos 100 palabras.");
+        if (title.length > 30 || summary.length > 100) {
+            alert("El título debe tener menos de 30 caracteres y el resumen menos de 100 palabras.");
             return;
         }
 
@@ -62,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     const titleElement = document.createElement('h3');
                     const summaryElement = document.createElement('p');
                     const linkElement = document.createElement('a');
-                    const dateElement = document.createElement('small');
 
                     titleElement.textContent = article.title;
                     summaryElement.textContent = article.summary + " ";
@@ -72,12 +77,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         alert(article.details);
                     });
 
-                    dateElement.textContent = new Date(article.created_at).toLocaleDateString();
-
                     summaryElement.appendChild(linkElement);
                     articleElement.appendChild(titleElement);
                     articleElement.appendChild(summaryElement);
-                    articleElement.appendChild(dateElement);
                     newsContainer.appendChild(articleElement);
                 });
             })

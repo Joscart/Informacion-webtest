@@ -1,39 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Noticias Teamers</title>
+    <title>Teamers - Noticias</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <h1>Noticias Teamers</h1>
-        <button id="openModalButton">Nueva Publicación</button>
+        <h1>Noticias de Teamers</h1>
+        <button id="new-post-btn">Nueva Publicación</button>
     </header>
-
-    <div id="newsContainer"></div>
-
-    <footer>
-        <p>&copy; Teamers, <?php echo date("Y"); ?></p>
-    </footer>
-
-    <div id="modal" class="modal hidden">
-        <form id="newPostForm">
-            <label for="title">Título:</label>
-            <input type="text" id="title" name="title" required>
-            
-            <label for="summary">Resumen:</label>
-            <textarea id="summary" name="summary" required></textarea>
-            
-            <label for="details">Detalles:</label>
-            <textarea id="details" name="details" required></textarea>
-            
-            <button type="submit">Publicar</button>
-            <button type="button" id="closeModalButton">Cerrar</button>
-        </form>
+    <main>
+        <section id="news">
+            <div id="news-container"></div>
+        </section>
+    </main>
+    <div id="modal" class="hidden">
+        <div id="modal-content">
+            <span id="close-modal">&times;</span>
+            <form id="new-post-form">
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" required maxlength="30">
+                <label for="summary">Resumen:</label>
+                <input type="text" id="summary" name="summary" required maxlength="100">
+                <label for="details">Detalles:</label>
+                <textarea id="details" name="details" required></textarea>
+                <button type="submit">Agregar Noticia</button>
+            </form>
+        </div>
     </div>
-
-    <script src="script.js"></script>
+    <footer>
+        <p>&copy; 2025 Teamers. Todos los derechos reservados.</p>
+    </footer>
 </body>
 </html>
+
