@@ -2,7 +2,7 @@
 // Archivo config.php
 
 // Ruta al archivo de contraseña
-$passwordFilePath = '/home/Joscart/mysql_pass';
+$passwordFilePath = './mysql_pass';
 
 // Leer la contraseña del archivo
 $password = trim(file_get_contents($passwordFilePath));

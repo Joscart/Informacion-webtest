@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const newPostBtn = document.getElementById('new-post-btn');
     const modal = document.getElementById('modal');
     const closeModal = document.getElementById('close-modal');
-    const cancelBtn = document.getElementById('cancel-btn');
     const newPostForm = document.getElementById('new-post-form');
     const newsContainer = document.getElementById('news-container');
 
@@ -14,11 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     closeModal.addEventListener('click', function() {
-        modal.classList.add('hidden');
-        modal.style.display = 'none'; // Ensure the modal is hidden
-    });
-
-    cancelBtn.addEventListener('click', function() {
         modal.classList.add('hidden');
         modal.style.display = 'none'; // Ensure the modal is hidden
     });
@@ -74,7 +68,21 @@ document.addEventListener('DOMContentLoaded', function() {
                     linkElement.textContent = "Leer más";
                     linkElement.href = "#";
                     linkElement.addEventListener('click', function() {
-                        alert(article.details);
+                        const miniWindow = document.createElement('div');
+                        miniWindow.classList.add('mini-window');
+                        miniWindow.innerHTML = `
+                            <div class="mini-window-content">
+                                <span class="close-mini-window">&times;</span>
+                                <h3>${article.title}</h3>
+                                <p>${article.details}</p>
+                            </div>
+                        `;
+                        document.body.appendChild(miniWindow);
+
+                        const closeMiniWindow = miniWindow.querySelector('.close-mini-window');
+                        closeMiniWindow.addEventListener('click', function() {
+                            document.body.removeChild(miniWindow);
+                        });
                     });
 
                     summaryElement.appendChild(linkElement);
