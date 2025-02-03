@@ -1,0 +1,152 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9f9f9;
+    color: #000;
+    overflow-x: hidden;
+}
+
+header {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 2s ease-in-out;
+}
+
+header img.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 100px; /* Adjust the width as needed */
+    height: auto;
+}
+
+main {
+    padding: 2rem;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+}
+
+#news article {
+    background-color: #e0f7e0;
+    padding: 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    animation: slideIn 1s ease-in-out forwards;
+}
+
+#news article h3 {
+    margin-top: 0;
+}
+
+#news article p {
+    margin-bottom: 0;
+}
+
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    display: none; /* Ensure the modal is hidden by default */
+}
+
+.hidden {
+    display: none;
+}
+
+#modal-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+#close-modal, #cancel-btn {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+#close-modal {
+    right: 1rem;
+}
+
+#cancel-btn {
+    right: 3rem;
+}
+
+#new-post-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+#new-post-form input, #new-post-form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#new-post-form button[type="submit"] {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#new-post-form button[type="submit"]:hover {
+    background-color: #388e3c;
+}
+
+footer {
+    background-color: #4caf50;
+    color: #fff;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}

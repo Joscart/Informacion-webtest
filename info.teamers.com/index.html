@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teamers - Instructivo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link rel="icon" href="./src/images/LogoTeamersShadowNoBG.webp" type="image/webp">
+</head>
+<body>
+    <header>
+        <a href="http://teamers.com">
+            <img src="./src/images/LogoTeamersNoBG.webp" alt="Teamers Logo" class="logo">
+        </a>
+        <h1>Instructivo de Uso</h1>
+    </header>
+    <main>
+        <section id="news">
+            <div id="news-container"></div>
+        </section>
+        <!-- PDF Reader Section -->
+        <section id="pdf-reader">
+            <iframe src="./src/docs/Instructivo.pdf" width="100%" height="600px"></iframe>
+        </section>
+    </main>
+    <div id="modal" class="hidden">
+        <div id="modal-content">
+            <span id="close-modal">&times;</span>
+            <form id="new-post-form">
+                <label for="title">Título:</label>
+                <input type="text" id="title" name="title" required maxlength="30">
+                <label for="summary">Resumen:</label>
+                <input type="text" id="summary" name="summary" required maxlength="100">
+                <label for="details">Detalles:</label>
+                <textarea id="details" name="details" required></textarea>
+                <button type="submit">Agregar Noticia</button>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 Teamers. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
