@@ -68,20 +68,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     linkElement.textContent = "Leer más";
                     linkElement.href = "#";
                     linkElement.addEventListener('click', function() {
-                        const miniWindow = document.createElement('div');
-                        miniWindow.classList.add('mini-window');
-                        miniWindow.innerHTML = `
-                            <div class="mini-window-content">
-                                <span class="close-mini-window">&times;</span>
+                        const overlay = document.createElement('div');
+                        overlay.classList.add('overlay');
+                        overlay.innerHTML = `
+                            <div class="overlay-content">
+                                <span class="close-overlay">&times;</span>
                                 <h3>${article.title}</h3>
                                 <p>${article.details}</p>
                             </div>
                         `;
-                        document.body.appendChild(miniWindow);
+                        document.body.appendChild(overlay);
 
-                        const closeMiniWindow = miniWindow.querySelector('.close-mini-window');
-                        closeMiniWindow.addEventListener('click', function() {
-                            document.body.removeChild(miniWindow);
+                        const closeOverlay = overlay.querySelector('.close-overlay');
+                        closeOverlay.addEventListener('click', function() {
+                            document.body.removeChild(overlay);
                         });
                     });
 
